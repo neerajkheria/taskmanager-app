@@ -3,10 +3,10 @@ name: CI - Build, Lint, Test
 on:
   pull_request:
     branches:
-      - "**"   
+      - "**"
   push:
     branches:
-      - main   
+      - main
 
 jobs:
   backend:
@@ -23,8 +23,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
-          cache-dependency-path: task-manager-backend/package-lock.json
+          cache: npm         # keep cache, but do NOT require lockfile path
 
       - name: Install dependencies
         run: npm ci
@@ -53,7 +52,6 @@ jobs:
         with:
           node-version: 20
           cache: npm
-          cache-dependency-path: task-manager-frontend/package-lock.json
 
       - name: Install dependencies
         run: npm ci
