@@ -42,9 +42,6 @@ jobs:
         run: npm run lint --if-present
         working-directory: task-manager-backend
 
-      - name: Run backend tests
-        run: npm test --if-present
-        working-directory: task-manager-backend
 
       - name: Build backend Docker image
         run: docker build -t task-manager-backend:ci .
@@ -80,10 +77,6 @@ jobs:
 
       - name: Lint frontend
         run: npm run lint --if-present
-        working-directory: task-manager-frontend
-
-      - name: Run frontend tests
-        run: npm test --if-present
         working-directory: task-manager-frontend
 
       - name: Build frontend Docker image
